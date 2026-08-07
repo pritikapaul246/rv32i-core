@@ -1,0 +1,4 @@
+*.vcd
+*.vvp
+sim/rv32i
+sim/*.out
