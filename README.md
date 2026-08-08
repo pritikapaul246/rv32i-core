@@ -6,8 +6,7 @@ lint verification.
 
 **Status:** Core datapath (fetch/decode/execute/memory/writeback) is
 implemented and verified for the instruction subset listed below. This is
-a working, testable core — not a complete RV32I implementation. See
-"Known Limitations" for exactly what's out of scope.
+a working, testable core — not a complete RV32I implementation.
 
 ## Architecture
 
@@ -106,17 +105,3 @@ Findings (all reviewed, none are bugs):
   256-word memory (`addr[9:2]` indexes the array); the unused bits would
   matter in a design with byte-addressable memory or a larger address
   space.
-
-## How to explain this design in an interview
-
-- Why single-cycle first: it's the cleanest way to get correct control
-  logic before adding pipelining complexity (hazards, forwarding,
-  branch prediction) — the natural next step.
-- Why these instructions: chosen to exercise every datapath element
-  (ALU ops, memory read/write, register writeback, immediate generation,
-  control flow) with the smallest useful subset.
-- Known next steps if extended: pipeline it (5-stage classic MIPS-style),
-  add JALR + branch variants beyond BEQ, add CSRs for interrupts,
-  and push the RTL through an open-source synthesis/PnR flow
-  (Yosys + OpenLane on the SkyWater 130nm PDK) to go from RTL to a
-  real physical layout — directly relevant for SoC/ASIC-focused roles.
