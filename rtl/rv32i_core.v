@@ -2,7 +2,8 @@ module rv32i_core(
     input             clk,
     input             rst_n,
     output     [31:0] pc_out,
-    output     [31:0] instr_out
+    output     [31:0] instr_out,
+    output     [31:0] wb_data_out
 );
     reg  [31:0] pc;
     wire [31:0] instr;
@@ -104,4 +105,5 @@ module rv32i_core(
 
     assign pc_out    = pc;
     assign instr_out = instr;
+    assign wb_data_out = write_back_data;
 endmodule
