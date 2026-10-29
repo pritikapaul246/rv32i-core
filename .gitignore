@@ -2,3 +2,8 @@
 *.vvp
 sim/rv32i
 sim/*.out
+obj_dir*/
+*.vcd
+coverage.dat
+program.hex
+synth.log
